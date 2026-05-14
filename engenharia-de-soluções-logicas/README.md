@@ -6,6 +6,7 @@ Este projeto consiste no desenvolvimento de soluções algorítmicas voltadas à
 A abordagem parte da análise do problema até a construção de uma solução estruturada, garantindo clareza, organização e eficiência na resolução.
  
 *Figura 1: Representação da lógica aplicada na solução de problemas.*
+![Figura 1](diagrama.pdf)
  
 ## 🚀 Tecnologias Utilizadas
 * **Linguagem:** Python  
