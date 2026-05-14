@@ -57,10 +57,7 @@ Breve explicação de como o código foi organizado:
 <summary>📂 Clique para ver todo o código</summary>
 
 import time
-
-# ─────────────────────────────────────────
-# ESTRUTURA DE DADOS — dicionário aninhado
-# ─────────────────────────────────────────
+ 
 empresa = {
     "Matriz": {
         "TI": {
@@ -81,11 +78,7 @@ empresa = {
         "Logística": 90_000,
     },
 }
-
-
-# ─────────────────────────────────────────
-# DECORATOR — @auditor
-# ─────────────────────────────────────────
+ 
 def auditor(funcao):
     def wrapper(*args, **kwargs):
         print("=" * 50)
@@ -93,64 +86,41 @@ def auditor(funcao):
         print("=" * 50)
         print(f"  Departamentos ignorados : {args[1:]}")
         print(f"  Parâmetros de câmbio    : {kwargs}")
-
         inicio = time.perf_counter()
         resultado = funcao(*args, **kwargs)
         fim = time.perf_counter()
-
         print(f"  Tempo de execução       : {fim - inicio:.6f}s")
         print("=" * 50)
         return resultado
     return wrapper
-
-
-# ─────────────────────────────────────────
-# FUNÇÃO PRINCIPAL
-# ─────────────────────────────────────────
+ 
 @auditor
 def calcular_orcamento(estrutura, *args, **kwargs):
-    """
-    estrutura → dicionário da empresa
-    *args     → nomes de departamentos a ignorar
-    **kwargs  → moeda_destino e taxa_cambio
-    """
     taxa = kwargs.get("taxa_cambio", 1.0)
     moeda = kwargs.get("moeda_destino", "USD")
-
-    # Recursão: soma os valores da árvore de dicionários
+ 
     def somar(no):
-        # Caso base: nó folha com valor numérico
         if isinstance(no, (int, float)):
             return no
-        # Caso recursivo: itera sobre os filhos
         total = 0
         for nome, conteudo in no.items():
-            if nome in args:  # ignora departamentos passados via *args
+            if nome in args:
                 print(f"  >> Ignorando: {nome}")
                 continue
             total += somar(conteudo)
         return total
-
+ 
     total_usd = somar(estrutura)
     total_convertido = total_usd * taxa
-
     print(f"\n  Total (USD)  : US$ {total_usd:,.2f}")
     print(f"  Total ({moeda}) : {total_convertido:,.2f}\n")
-
     return total_convertido
-
-
-# ─────────────────────────────────────────
-# EXEMPLOS DE USO
-# ─────────────────────────────────────────
-
-# Sem filtros, sem conversão
+ 
 calcular_orcamento(empresa)
-
-# Ignorando TI e Marketing, convertendo para BRL
+ 
 calcular_orcamento(
     empresa,
-    "TI", "Marketing",        # *args — departamentos ignorados
-    moeda_destino="BRL",      # **kwargs
+    "TI", "Marketing",
+    moeda_destino="BRL",
     taxa_cambio=5.20
 )
