@@ -57,28 +57,28 @@ Breve explicação de como o código foi organizado:
 <summary>📂 Clique para ver todo o código</summary>
 
 import time
- 
+
 empresa = {
     "Matriz": {
         "TI": {
-            "Infraestrutura": 120_000,
-            "Desenvolvimento": 95_000,
+            "Infraestrutura": 120000,
+            "Desenvolvimento": 95000,
         },
         "RH": {
-            "Recrutamento": 60_000,
-            "Treinamento": 35_000,
+            "Recrutamento": 60000,
+            "Treinamento": 35000,
         },
         "Marketing": {
-            "Digital": 55_000,
-            "Eventos": 40_000,
+            "Digital": 55000,
+            "Eventos": 40000,
         },
     },
     "Filial SP": {
-        "Vendas": 75_000,
-        "Logística": 90_000,
+        "Vendas": 75000,
+        "Logística": 90000,
     },
 }
- 
+
 def auditor(funcao):
     def wrapper(*args, **kwargs):
         print("=" * 50)
@@ -93,12 +93,12 @@ def auditor(funcao):
         print("=" * 50)
         return resultado
     return wrapper
- 
+
 @auditor
 def calcular_orcamento(estrutura, *args, **kwargs):
     taxa = kwargs.get("taxa_cambio", 1.0)
     moeda = kwargs.get("moeda_destino", "USD")
- 
+
     def somar(no):
         if isinstance(no, (int, float)):
             return no
@@ -109,15 +109,15 @@ def calcular_orcamento(estrutura, *args, **kwargs):
                 continue
             total += somar(conteudo)
         return total
- 
+
     total_usd = somar(estrutura)
     total_convertido = total_usd * taxa
     print(f"\n  Total (USD)  : US$ {total_usd:,.2f}")
     print(f"  Total ({moeda}) : {total_convertido:,.2f}\n")
     return total_convertido
- 
+
 calcular_orcamento(empresa)
- 
+
 calcular_orcamento(
     empresa,
     "TI", "Marketing",
