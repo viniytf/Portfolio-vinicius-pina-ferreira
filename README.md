@@ -45,7 +45,9 @@ Atualmente cursando o 1º período de Engenharia de Software na Universidade Cid
 | **Traduzindo Lógica para Python** | Quatro programas práticos: processador de vendas, analisador de clima, sistema de notas e simulador de poupança. | [Ver Projeto](./traduzindo-logica-para-python/) |
 | **Engenharia de Contexto e Lógica Física** | Análise de microclima urbano (Mooca, Tatuapé, Guaianases) e simulador de rota de evacuação com listas e loops. | [Ver Projeto](./engenharia-de-contexto-e-logica-fisica/) |
 | **Desenhando Emojis com Dados** | Manipulação de matrizes, dicionários e tuplas com loops aninhados para criar arte visual em pixel com matplotlib. | [Ver Projeto](./desenhando-emojis-com-dados/) |
- 
+| **Sistema de Auditoria de Recursos Corporativos** | Sistema desenvolvido em Python para calcular e auditar orçamentos corporativos em estruturas hierárquicas complexas, utilizando recursão para percorrer departamentos aninhados, além de aplicar filtros dinâmicos com *args, conversão financeira com **kwargs* e monitoramento de execução através de decorators de auditoria. | [Ver Projeto](./Sistema-de-Auditoria-de-Recursos-Corporativos/) |
+
+
 ---
  
 ### 🏗 Estrutura do Repositório
