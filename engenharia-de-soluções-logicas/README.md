@@ -21,7 +21,7 @@ A abordagem parte da análise do problema até a construção de uma solução e
 
 
 ## 💻 Resposta do Projeto 
-<details> <summary>📂 Clique para ver todos os códigos</summary>
+<details> <summary>📂 Clique para ver as respotas</summary>
 
 inicio
 
